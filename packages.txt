@@ -1,8 +1,0 @@
-streamlit
-openai
-python-dotenv
-matplotlib
-pandasai
-os
-pandasai.llm.openai
-pandas
