@@ -4,9 +4,9 @@ from dotenv import load_dotenv
 import os
 import streamlit as st
 import pandas as pd
-import matplotlib
+import matplotlib as plt
 
-matplotlib.use('TkAgg')
+plt.use('TkAgg')
 
 load_dotenv()
 
@@ -27,7 +27,7 @@ with st.sidebar:
 llm = OpenAI(api_token=API_KEY)
 padndasai = PandasAI(llm)
 
-file = st.file_uploader("Upload your CSV file", type=['csv'])
+file = st.file_uploader("Upload your CSV file:", type=['csv'])
 
 if file is not None:
     df = pd.read_csv(file)
@@ -41,3 +41,4 @@ if file is not None:
                 st.write(padndasai.run(df,prompt=prompt))
         else:
             st.write("Please Enter a Prompt")
+        
