@@ -9,8 +9,8 @@ import matplotlib as plt
 plt.use('TkAgg')
 
 load_dotenv()
-API_KEY = ''
-#API_KEY = os.environ['OPENAI_API_KEY']
+
+API_KEY = os.environ['OPENAI_API_KEY']
 st.set_page_config(page_title="Analyzer")
 st.title('PandasAI Prompt Analyzer')
 
