@@ -1,5 +1,5 @@
 from pandasai import SmartDataframe
-from pandasai.llm.openai import OpenAI
+from pandasai.llm.openai import OpenAI as PandasOpenAI
 from dotenv import load_dotenv
 from openai import OpenAI 
 import os
@@ -29,7 +29,7 @@ with st.sidebar:
     - [Linkedin](https://www.linkedin.com/in/yahya-momtaz-601b34108)
     ''')
 
-llm = OpenAI(api_key=st.session_state.get("API_KEY", ""))
+llm = PandasOpenAI(api_token=st.session_state.get("API_KEY", ""))
 
 file = st.file_uploader("Upload your CSV file:", type=['csv'])
 
