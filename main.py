@@ -26,7 +26,8 @@ with st.sidebar:
     - [Linkedin](https://www.linkedin.com/in/yahya-momtaz-601b34108)
     ''')
 
-llm = OpenAI(api_token=st.session_state.get("API_KEY", ""))
+# Initialize OpenAI with api_token parameter
+llm = OpenAI(api_token=st.session_state.get("API_KEY", ""), model="gpt-3.5-turbo")
 
 file = st.file_uploader("Upload your CSV file:", type=['csv'])
 
