@@ -11,14 +11,11 @@ plt.use('TkAgg')
 load_dotenv()
 
 API_KEY = os.environ['OPENAI_API_KEY']
-st.set_page_config(page_title="PandasAI Prompt Analyzer")
+st.set_page_config(page_title="Analyzer")
 st.title('PandasAI Prompt Analyzer')
 
 with st.sidebar:
-    api_input = st.text_input("Enter your API KEY here:", type="password")
-    if api_input:
-        st.session_state["API_KEY"] = api_input
-
+    API_KEY = st.text_input("Enter your API KEY here:")
     
     st.markdown('''
     Made by **Yahya Momtaz**
@@ -28,7 +25,7 @@ with st.sidebar:
     - [Linkedin](https://www.linkedin.com/in/yahya-momtaz-601b34108)
     ''')
 
-llm = OpenAI(api_token=st.session_state.get("API_KEY", ""))
+llm = OpenAI(api_token=API_KEY)
 
 file = st.file_uploader("Upload your CSV file:", type=['csv'])
 
