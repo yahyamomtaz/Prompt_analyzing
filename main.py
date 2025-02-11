@@ -1,17 +1,16 @@
 from pandasai import SmartDataframe
-from pandasai.llm.openai import OpenAI as PandasOpenAI
+from pandasai.llm.openai import OpenAI
 from dotenv import load_dotenv
-from openai import OpenAI 
 import os
 import streamlit as st
 import pandas as pd
 import matplotlib as plt
-import yaml
 
-#plt.use('TkAgg')
+plt.use('TkAgg')
 
 load_dotenv()
-API_KEY = os.environ.get('OPENAI_API_KEY', "")
+
+API_KEY = os.environ['OPENAI_API_KEY']
 st.set_page_config(page_title="PandasAI Prompt Analyzer")
 st.title('PandasAI Prompt Analyzer')
 
@@ -29,7 +28,7 @@ with st.sidebar:
     - [Linkedin](https://www.linkedin.com/in/yahya-momtaz-601b34108)
     ''')
 
-llm = PandasOpenAI(api_token=st.session_state.get("API_KEY", ""))
+llm = OpenAI(api_token=st.session_state.get("API_KEY", ""))
 
 file = st.file_uploader("Upload your CSV file:", type=['csv'])
 
