@@ -1,5 +1,5 @@
 from pandasai import SmartDataframe
-from pandasai.llm.openai import OpenAI
+from pandasai.llm import OpenAI
 from dotenv import load_dotenv
 import os
 import streamlit as st
@@ -9,14 +9,15 @@ import matplotlib as plt
 plt.use('TkAgg')
 
 load_dotenv()
-
-API_KEY = os.environ['OPENAI_API_KEY']
-st.set_page_config(page_title="Analyzer")
+API_KEY = os.environ.get('OPENAI_API_KEY', "")
+st.set_page_config(page_title="PandasAI Prompt Analyzer")
 st.title('PandasAI Prompt Analyzer')
 
 with st.sidebar:
-    API_KEY = st.text_input("Enter your API KEY here:")
-    
+    api_input = st.text_input("Enter your API KEY here:", type="password")
+    if api_input:
+        st.session_state["API_KEY"] = api_input
+
     st.markdown('''
     Made by **Yahya Momtaz**
     - [Visit my website](https://yayamomt.tech)
@@ -25,7 +26,7 @@ with st.sidebar:
     - [Linkedin](https://www.linkedin.com/in/yahya-momtaz-601b34108)
     ''')
 
-llm = OpenAI(api_token=API_KEY)
+llm = OpenAI(api_token=st.session_state.get("API_KEY", ""))
 
 file = st.file_uploader("Upload your CSV file:", type=['csv'])
 
