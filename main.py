@@ -1,6 +1,7 @@
 from pandasai import SmartDataframe
 from pandasai.llm.openai import OpenAI
 from dotenv import load_dotenv
+from openai import OpenAI 
 import os
 import streamlit as st
 import pandas as pd
@@ -28,7 +29,7 @@ with st.sidebar:
     - [Linkedin](https://www.linkedin.com/in/yahya-momtaz-601b34108)
     ''')
 
-llm = OpenAI(api_token=st.session_state.get("API_KEY", ""))
+llm = OpenAI(api_key=st.session_state.get("API_KEY", ""))
 
 file = st.file_uploader("Upload your CSV file:", type=['csv'])
 
