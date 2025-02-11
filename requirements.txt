@@ -4,6 +4,10 @@ pandas==2.2.0
 python-dotenv==1.0.1
 pandasai==1.5.5
 matplotlib==3.8.2
-bs4==0.0.2
-pyyaml
-polars
+typing-extensions==4.8.0
+rich==13.7.0
+markdown-it-py==3.0.0
+pygments==2.16.1
+mdurl==0.1.2
+pyyaml==6.0.1
+polars==0.20.7
