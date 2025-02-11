@@ -1,5 +1,5 @@
-streamlit==0.63.0
-openai==0.27.8
+streamlit==1.42.0
+openai==4.12.2
 pandasai
 pandas
 bs4
